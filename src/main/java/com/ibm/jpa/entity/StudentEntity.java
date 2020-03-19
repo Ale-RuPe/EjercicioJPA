@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.ibm.jpa.constants.Constants;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +24,7 @@ import lombok.Setter;
  *
  */
 @Entity
-@Table(name="student")
+@Table(name=Constants.STUDENT_TABLE)
 @Getter
 @Setter
 public class StudentEntity implements Serializable{
@@ -35,39 +37,39 @@ public class StudentEntity implements Serializable{
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "student_id")
+	@Column(name = Constants.STUDENT_ID)
 	private int id;
 	/**
 	 * Column name
 	 */
-	@Column(name = "name")
+	@Column(name = Constants.STUDENT_NAME)
 	private String name;
 	/**
 	 * Column lastName
 	 */
-	@Column(name = "last_name")
+	@Column(name = Constants.STUDENT_LASTNAME)
 	private String lastName;
 	/**
 	 * Column age
 	 */
-	@Column(name = "age")
+	@Column(name = Constants.STUDENT_AGE)
 	private int age;
 	/**
 	 * Column date of birth
 	 */
-	@Column(name = "birth_date")
-	private Date birthDay;
+	@Column(name = Constants.STUDENT_BIRTHDATE)
+	private Date birthDate;
 	/**
 	 * Many to one company
 	 */
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="company_id")
+	@JoinColumn(name = Constants.STUDENT_COMPANY_ID)
 	private CompanyEntity company;
 	/**
 	 * Many to one city
 	 */
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="country_id")
+	@JoinColumn(name = Constants.STUDENT_COUNTRY_ID)
 	private CountryEntity country;
 	
 }

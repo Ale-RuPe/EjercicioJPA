@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.ibm.jpa.constants.Constants;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +20,7 @@ import lombok.Setter;
  */
 
 @Entity
-@Table(name="company")
+@Table(name = Constants.COMPANY_TABLE)
 @Getter
 @Setter
 public class CompanyEntity implements Serializable{
@@ -31,12 +33,12 @@ public class CompanyEntity implements Serializable{
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "company_id")
+	@Column(name = Constants.COMPANY_ID)
 	private int id;
 	/**
 	 * Column company
 	 */
-	@Column(name = "name")
+	@Column(name = Constants.COMPANY_NAME)
 	private String name;
 	
 }

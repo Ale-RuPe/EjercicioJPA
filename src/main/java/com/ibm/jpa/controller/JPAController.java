@@ -14,6 +14,11 @@ import com.ibm.jpa.service.StudentService;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 
+ * @author AlejandroRuizPerez
+ *
+ */
 @RestController
 @Slf4j
 public class JPAController {
