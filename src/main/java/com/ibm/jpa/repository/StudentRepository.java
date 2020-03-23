@@ -1,19 +1,15 @@
 package com.ibm.jpa.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.ibm.jpa.entity.StudentEntity;
+
 /**
  * 
  * @author AlejandroRuizPerez
  *
  */
-public interface StudentRepository extends JpaRepository<StudentEntity, Integer>{
-	StudentEntity findByName(String name);
-	
-	StudentEntity findByLastName(String lastName);
-	
-	List<StudentEntity> findAll();
+
+public interface StudentRepository extends MongoRepository<StudentEntity, String>, CustomStudentRepository{
+
 }

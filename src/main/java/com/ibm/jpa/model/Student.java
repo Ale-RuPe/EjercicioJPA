@@ -11,14 +11,20 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DataRequestStudent {
+public class Student {
 	/**
-	 * Student name
+	 * The name of the student
 	 */
 	private String name;
 	/**
-	 * Student lastname
+	 * The last name of the student
 	 */
 	private String lastName;
+	/**
+	 * The age of the student
+	 */
+	private int age;
 	
+	private Company company;
+	private Country city;
 }

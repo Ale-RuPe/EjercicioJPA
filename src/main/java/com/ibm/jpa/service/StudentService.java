@@ -1,17 +1,17 @@
 package com.ibm.jpa.service;
 
-import java.util.List;
-
 import com.ibm.jpa.entity.StudentEntity;
+import com.ibm.jpa.model.RetrieveStudentResponse;
+import com.ibm.jpa.model.Student;
 
 public interface StudentService {
-	StudentEntity findByName(String name);
+	RetrieveStudentResponse findByName(String name);
 	
-	StudentEntity findByLastName(String name);
+	RetrieveStudentResponse findByLastName(String name);
 	
-	List<StudentEntity> findAll();
+	RetrieveStudentResponse findAll();
 	
-	StudentEntity saveStudent(StudentEntity student);
+	StudentEntity saveStudent(Student student);
 }
 
 

@@ -1,19 +1,10 @@
 package com.ibm.jpa.entity;
 
-import java.io.Serializable;
-import java.sql.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import com.ibm.jpa.constants.Constants;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,53 +14,42 @@ import lombok.Setter;
  * @author AlejandroRuizPerez
  *
  */
-@Entity
-@Table(name=Constants.STUDENT_TABLE)
+@Document(collection = "students")
 @Getter
 @Setter
-public class StudentEntity implements Serializable{
+public class StudentEntity{
 	/**
-	 * UID
+	 * Column ID
 	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * Student Id
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = Constants.STUDENT_ID)
-	private int id;
+	@Field("_id")
+	private ObjectId id;
 	/**
 	 * Column name
 	 */
-	@Column(name = Constants.STUDENT_NAME)
+	@Field("nombre")
 	private String name;
 	/**
 	 * Column lastName
 	 */
-	@Column(name = Constants.STUDENT_LASTNAME)
+	@Field("apellido")
 	private String lastName;
 	/**
 	 * Column age
 	 */
-	@Column(name = Constants.STUDENT_AGE)
+	@Field("edad")
 	private int age;
-	/**
-	 * Column date of birth
-	 */
-	@Column(name = Constants.STUDENT_BIRTHDATE)
-	private Date birthDate;
 	/**
 	 * Many to one company
 	 */
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = Constants.STUDENT_COMPANY_ID)
+	@Field("company")
 	private CompanyEntity company;
 	/**
 	 * Many to one city
 	 */
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = Constants.STUDENT_COUNTRY_ID)
-	private CountryEntity country;
+	@Field("city")
+	private CountryEntity city;
+	
+	@Field("companies")
+	private List<CompanyEntity> companies;
 	
 }

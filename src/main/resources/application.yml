@@ -1,16 +1,37 @@
-spring:
-  datasource:
-    password: root
-    url: jdbc:postgresql://localhost:5432/tareabases
-    username: postgres
-    platform: postgres
-  jpa:
-    database: POSTGRESQL
-    show-sql: true
-    generate-ddl: true
-#    hibernate:
-#      ddl-auto: create
-
-
 server:
-  port: 8080
+  port: 8081
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: admin
+      password: admin
+      database: tareas
+      port: 27017
+      host: localhost
+      
+  application:
+    name: EjercicioJPA
+  config:
+    name: ${spring.application.name}
+#spring:
+#  application:
+#    name: EjercicioJPA
+#  config:
+#    name: EjercicioJPA
+#spring:
+#  datasource:
+#    password: root
+#    url: jdbc:postgresql://localhost:5432/tareabases
+#    username: postgres
+#    platform: postgres
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    generate-ddl: true
+##    hibernate:
+##      ddl-auto: create
+#
+#
+#server:
+#  port: 8080
